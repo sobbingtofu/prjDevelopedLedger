@@ -5,9 +5,9 @@ import ExpenseLog from "./ExpenseLog/ExpenseLog";
 const ExpenseHistorySection = ({currentLocalStorage}) => {
   return (
     <>
-      <MonthSelectSection></MonthSelectSection>
-      <ExpenseDiagram></ExpenseDiagram>
-      <ExpenseLog></ExpenseLog>
+      <MonthSelectSection />
+      <ExpenseDiagram />
+      <ExpenseLog />
     </>
   );
 };

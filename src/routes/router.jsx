@@ -5,11 +5,11 @@ import ExpenseEditPage from "../pages/ExpenseEditPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage></MainPage>,
+    element: <MainPage />,
   },
   {
     path: "/expenseEdit/:id",
-    element: <ExpenseEditPage></ExpenseEditPage>,
+    element: <ExpenseEditPage />,
   },
 ]);
 

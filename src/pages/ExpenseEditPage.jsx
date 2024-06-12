@@ -2,7 +2,7 @@ import React from "react";
 import ExpenseEditSection from "../components/ExpenseEditSection/ExpenseEditSection";
 
 const ExpenseEditPage = () => {
-  return <ExpenseEditSection></ExpenseEditSection>;
+  return <ExpenseEditSection />;
 };
 
 export default ExpenseEditPage;

@@ -7,9 +7,9 @@ function MainPage() {
   return (
     <>
       <h1>지출 입력</h1>
-      <AddSection></AddSection>
+      <AddSection />
       <h1>올해 지출 내역</h1>
-      <ExpenseHistorySection></ExpenseHistorySection>
+      <ExpenseHistorySection />
     </>
   );
 }
