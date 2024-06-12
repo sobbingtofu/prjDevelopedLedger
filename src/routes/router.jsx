@@ -2,7 +2,7 @@ import {createBrowserRouter} from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import ExpenseEditPage from "../pages/ExpenseEditPage";
 
-const router = createBrowserRouter([
+export const loggedInRouter = createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
@@ -13,4 +13,9 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router;
+export const loggedOutRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+  },
+]);

@@ -1,9 +1,15 @@
 import {RouterProvider} from "react-router-dom";
-import router from "./routes/router";
+import {loggedInRouter, loggedOutRouter} from "./routes/router";
 import "./App.css";
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  const isLoggedIn = true;
+
+  return isLoggedIn ? (
+    <RouterProvider router={loggedInRouter}></RouterProvider>
+  ) : (
+    <RouterProvider router={loggedOutRouter}></RouterProvider>
+  );
 }
 
 export default App;

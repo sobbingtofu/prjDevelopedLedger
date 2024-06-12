@@ -28,7 +28,7 @@ const ExpenseDiagram = () => {
   });
 
   const SelectedMonthLedger = tmpSelectedMonthLedger.map((ledgerItem) => {
-    return {...ledgerItem, ...{expenseRatio: 100 * (ledgerItem.money / totalExpenseAmount).toFixed(4)}};
+    return {...ledgerItem, ...{expenseRatio: 100 * (ledgerItem.money / totalExpenseAmount).toFixed(3)}};
   });
 
   const SelectedMonthLedgerGroupedByCategory = [];
@@ -38,7 +38,7 @@ const ExpenseDiagram = () => {
       const tmp = {
         category: ledgerItem.category,
         totalExpense: parseInt(ledgerItem.money),
-        totalExpenseRatio: parseInt(ledgerItem.expenseRatio),
+        totalExpenseRatio: parseFloat(ledgerItem.expenseRatio).toFixed(3),
       };
       SelectedMonthLedgerGroupedByCategory.push(tmp);
     } else {
@@ -50,12 +50,14 @@ const ExpenseDiagram = () => {
         const tmpObj = {
           category: ledgerItem.category,
           totalExpense: parseInt(ledgerItem.money),
-          totalExpenseRatio: parseInt(ledgerItem.expenseRatio),
+          totalExpenseRatio: parseFloat(ledgerItem.expenseRatio).toFixed(3),
         };
         SelectedMonthLedgerGroupedByCategory.push(tmpObj);
       } else {
         SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpense += parseInt(ledgerItem.money);
-        SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpenseRatio += parseInt(ledgerItem.expenseRatio);
+        SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpenseRatio += parseFloat(
+          ledgerItem.expenseRatio
+        ).toFixed(3);
       }
     }
   });
@@ -98,7 +100,9 @@ const ExpenseDiagram = () => {
             return (
               <FootnoteItem key={index}>
                 <FootnoteColorbox $index={index}></FootnoteColorbox>
-                <p>{`${ledgerItem.category}: ${ledgerItem.totalExpense}원 (${ledgerItem.totalExpenseRatio}%)`}</p>
+                <p>{`${ledgerItem.category}: ${ledgerItem.totalExpense}원 (${parseFloat(
+                  ledgerItem.totalExpenseRatio
+                ).toFixed(1)}%)`}</p>
               </FootnoteItem>
             );
           })}
