@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background-color: #d4fbf3;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  gap: 10px;
+}
