@@ -27,7 +27,7 @@ const COLOR_ARRAY = ["#94e0a1", "#edc0f0", "#a19bf2", "#e6d5a1", "#95edcc", "#f5
 export const ExpenseDiagramSegment = styled.div`
   height: 100%;
   width: ${({$expenseRatio}) => {
-    const width = parseInt($expenseRatio) * 100;
+    const width = parseInt($expenseRatio);
     return `${width}%`;
   }};
   background-color: ${({$index}) => {

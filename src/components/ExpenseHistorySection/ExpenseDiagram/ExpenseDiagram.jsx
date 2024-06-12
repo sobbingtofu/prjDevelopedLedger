@@ -28,7 +28,7 @@ const ExpenseDiagram = () => {
   });
 
   const SelectedMonthLedger = tmpSelectedMonthLedger.map((ledgerItem) => {
-    return {...ledgerItem, ...{expenseRatio: (ledgerItem.money / totalExpenseAmount).toFixed(4)}};
+    return {...ledgerItem, ...{expenseRatio: 100 * (ledgerItem.money / totalExpenseAmount).toFixed(4)}};
   });
 
   const SelectedMonthLedgerGroupedByCategory = [];
