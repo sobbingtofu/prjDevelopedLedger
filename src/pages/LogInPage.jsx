@@ -18,7 +18,11 @@ const LogInPage = () => {
   });
   return (
     <>
-      <input id="id" placeholder="아이디를 입력하세요" onChange={handleInputChange}></input>
+      <div className="flex justify-between items-center px-5 bg-gray-200">
+        <p>ID:</p>
+        <input id="id" placeholder="아이디를 입력하세요" onChange={handleInputChange}></input>
+      </div>
+
       <input id="pw" placeholder="비밀번호를 입력하세요" onChange={handleInputChange}></input>
     </>
   );
