@@ -3,7 +3,7 @@ import {loggedInRouter, loggedOutRouter} from "./routes/router";
 import "./App.css";
 
 function App() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return isLoggedIn ? (
     <RouterProvider router={loggedInRouter}></RouterProvider>
