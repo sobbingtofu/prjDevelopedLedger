@@ -27,7 +27,7 @@ export const StyledMonthItem = styled.div`
     if (id == $selectedMonth) {
       return "#6b9bef";
     } else {
-      return "white";
+      return "#e1ecff";
     }
   }};
 `;

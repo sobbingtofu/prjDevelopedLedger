@@ -5,7 +5,7 @@ export const StyledArea = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
+  min-width: 920px;
   background-color: #f6ffff;
   border-radius: 15px;
   padding: 10px 0px;
@@ -16,7 +16,7 @@ export const StyledRowFlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 3%;
+  gap: 1%;
   width: 90%;
 `;
 
@@ -24,6 +24,6 @@ export const StyledGridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-content: space-between;
-  gap: 3%;
+  gap: 10px 40px;
   width: 90%;
 `;
