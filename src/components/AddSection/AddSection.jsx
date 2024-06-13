@@ -39,7 +39,8 @@ const AddSection = () => {
           money: moneyInputRef.current.value,
           description: descriptionInputRef.current.value,
           id: id,
-          createdBy: response.data.id,
+          createdBy: response.data.nickname,
+          creatorId: response.data.id,
         };
         postLedgerToServer(newLedgerItem);
       }

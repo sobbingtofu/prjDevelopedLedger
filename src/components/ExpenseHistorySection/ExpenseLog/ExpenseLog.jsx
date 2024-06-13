@@ -40,7 +40,7 @@ const ExpenseLog = () => {
 
     const handleLedgerClick = async (event) => {
       const target = event.currentTarget;
-      console.log(target);
+
       await getUserData().then((response) => {
         if (response.statusText !== "OK") {
           shiftToLogOut();
@@ -50,7 +50,9 @@ const ExpenseLog = () => {
           const currentLedgerItem = fetchedCurrentLedgers.find((ledgerItem) => {
             return ledgerItem.id === target.id;
           });
-          if (response.data.id === currentLedgerItem.createdBy) {
+          console.log(currentLedgerItem);
+          console.log(response.data);
+          if (response.data.id === currentLedgerItem.creatorId) {
             navigate(`/expenseEdit/${target.id}`);
           } else {
             alert("수정 및 삭제 권한이 없습니다");
@@ -71,8 +73,8 @@ const ExpenseLog = () => {
                   <LogDate>{ledgerItem.date}</LogDate>
                   <LogDescription>{`${ledgerItem.category}:    ${ledgerItem.description} `}</LogDescription>
                 </div>
-                <div className="flex gap-8 w-72 justify-between">
-                  <p>{`[지출 책임자: ${ledgerItem.nickname}]`}</p>
+                <div className="flex gap-8 w-92 justify-between">
+                  <p>{`[지출 책임자: ${ledgerItem.createdBy}]`}</p>
                   <LogMoney>{`${ledgerItem.money}원`}</LogMoney>
                 </div>
               </ExpenseLogItem>

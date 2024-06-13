@@ -89,7 +89,6 @@ const ExpenseDiagram = () => {
       }
       SelectedMonthLedgerGroupedByCategory.push(extraLedger);
     }
-    console.log(SelectedMonthLedgerGroupedByCategory);
 
     if (selectedMonth !== 0) {
       return (
