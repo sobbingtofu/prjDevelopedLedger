@@ -72,7 +72,7 @@ const ExpenseLog = () => {
                   <LogDescription>{`${ledgerItem.category}:    ${ledgerItem.description} `}</LogDescription>
                 </div>
                 <div className="flex gap-8 w-72 justify-between">
-                  <p>{`[지출 책임자: ${ledgerItem.createdBy}]`}</p>
+                  <p>{`[지출 책임자: ${ledgerItem.nickname}]`}</p>
                   <LogMoney>{`${ledgerItem.money}원`}</LogMoney>
                 </div>
               </ExpenseLogItem>
