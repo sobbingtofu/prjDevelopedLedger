@@ -52,4 +52,8 @@ export const loggedOutRouter = createBrowserRouter([
     path: "/expenseEdit/:id",
     element: <Redirect />,
   },
+  {
+    path: "/myPage",
+    element: <Redirect />,
+  },
 ]);

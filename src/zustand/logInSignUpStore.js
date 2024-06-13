@@ -1,7 +1,8 @@
 import {create} from "zustand";
+import {getUserData} from "../axios/authApi";
 
 const checkAccessToken = () => {
-  const accessToken = JSON.parse(localStorage.getItem("accessToken")) || "";
+  const accessToken = localStorage.getItem("accessToken") || "";
   if (accessToken === "") {
     return false;
   } else {

@@ -26,7 +26,7 @@ const LogInPage = () => {
     navigate("/signIn");
   };
 
-  const handleClickLogInBtn = () => {
+  const handleClickLogInBtn = async () => {
     if (inputUserProfileData.inputUserId === "" || inputUserProfileData.inputUserPw === "") {
       alert("모든 입력창을 입력해주세요");
     } else {
@@ -34,9 +34,9 @@ const LogInPage = () => {
         id: inputUserProfileData.inputUserId,
         password: inputUserProfileData.inputUserPw,
       };
-      logIn(userProfileBody).then((response) => {
+      await logIn(userProfileBody).then((response) => {
         if (response.statusText === "OK") {
-          localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+          localStorage.setItem("accessToken", response.data.accessToken);
           alert(`로그인 완료`);
           shiftToLogIn();
         } else {

@@ -2,7 +2,7 @@ import MonthSelectSection from "./MonthSelector/MonthSelector";
 import ExpenseDiagram from "./ExpenseDiagram/ExpenseDiagram";
 import ExpenseLog from "./ExpenseLog/ExpenseLog";
 
-const ExpenseHistorySection = ({currentLocalStorage}) => {
+const ExpenseHistorySection = () => {
   return (
     <div className="flex flex-col gap-y-8">
       <MonthSelectSection />

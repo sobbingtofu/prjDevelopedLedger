@@ -27,3 +27,19 @@ export const logIn = async (userData) => {
     return error.response;
   }
 };
+
+export const getUserData = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    try {
+      const path = "/user";
+      const response = await authApi.get(path, {
+        headers: {Authorization: `Bearer ${accessToken}`},
+      });
+
+      return response;
+    } catch (error) {
+      return error;
+    }
+  }
+};
