@@ -14,7 +14,7 @@ const ExpenseLog = () => {
     isPending,
     isError,
   } = useQuery({
-    queryKey: ["fetchCurrentLegers"],
+    queryKey: ["fetchCurrentLedgers"],
     queryFn: fetchLedgers,
   });
 
@@ -41,9 +41,12 @@ const ExpenseLog = () => {
               <ExpenseLogItem key={ledgerItem.id} to={`/expenseEdit/${ledgerItem.id}`}>
                 <div>
                   <LogDate>{ledgerItem.date}</LogDate>
-                  <LogDescription>{`${ledgerItem.category}:    ${ledgerItem.description}`}</LogDescription>
+                  <LogDescription>{`${ledgerItem.category}:    ${ledgerItem.description} `}</LogDescription>
                 </div>
-                <LogMoney>{`${ledgerItem.money}원`}</LogMoney>
+                <div className="flex gap-8">
+                  <p>{`[지출 책임자: ${ledgerItem.createdBy}]`}</p>
+                  <LogMoney>{`${ledgerItem.money}원`}</LogMoney>
+                </div>
               </ExpenseLogItem>
             );
           })}

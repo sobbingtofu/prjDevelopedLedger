@@ -21,7 +21,7 @@ const ExpenseDiagram = () => {
     isPending,
     isError,
   } = useQuery({
-    queryKey: ["fetchCurrentLegers"],
+    queryKey: ["fetchCurrentLedgers"],
     queryFn: fetchLedgers,
   });
 

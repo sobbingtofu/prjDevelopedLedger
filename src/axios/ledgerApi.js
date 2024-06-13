@@ -15,7 +15,14 @@ export const fetchLedgers = async () => {
   } catch (error) {
     return error.response;
   }
+};
 
-  // const response = await axios.get("http://localhost:4000/todos");
-  // return response.data;
+export const postLedger = async (ledgerItem) => {
+  try {
+    const path = "/ledgers";
+    const response = await ledgerApi.post(path, ledgerItem);
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
 };

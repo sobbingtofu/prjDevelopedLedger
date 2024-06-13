@@ -39,7 +39,7 @@ export const getUserData = async () => {
 
       return response;
     } catch (error) {
-      return error;
+      return error.response;
     }
   }
 };

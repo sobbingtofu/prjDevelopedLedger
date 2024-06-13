@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useLogInSignUpStore} from "../zustand/logInSignUpStore";
 import {logIn} from "../axios/authApi";
+import {useQueryClient} from "@tanstack/react-query";
 
 const LogInPage = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const idInput = useLogInSignUpStore((state) => state.idInput);
   const shiftToLogIn = useLogInSignUpStore((state) => state.shiftToLogIn);
@@ -30,6 +32,7 @@ const LogInPage = () => {
     if (inputUserProfileData.inputUserId === "" || inputUserProfileData.inputUserPw === "") {
       alert("모든 입력창을 입력해주세요");
     } else {
+      // queryClient.invalidateQueries(["currentUserData"]);
       const userProfileBody = {
         id: inputUserProfileData.inputUserId,
         password: inputUserProfileData.inputUserPw,

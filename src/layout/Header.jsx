@@ -1,11 +1,23 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useLogInSignUpStore} from "../zustand/logInSignUpStore";
 import {useNavigate} from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
+import {getUserData} from "../axios/authApi";
 
 const Header = () => {
   const navigate = useNavigate();
-
   const shiftToLogOut = useLogInSignUpStore((state) => state.shiftToLogOut);
+
+  useEffect(() => {
+    // const accessToken = localStorage.getItem("accessToken");
+    getUserData().then((response) => {
+      if (response.statusText !== "OK") {
+        shiftToLogOut();
+        localStorage.removeItem("accessToken");
+        alert(response.data.message);
+      }
+    });
+  });
 
   const handleLogOutClick = () => {
     shiftToLogOut();
