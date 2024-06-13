@@ -30,7 +30,7 @@ const LogInPage = () => {
       <div className="flex gap-4 items-center justify-center">
         <p className="w-20">아이디:</p>
         <input
-          className="p-1"
+          className="p-1 w-56"
           id="id"
           onChange={handleInputChange}
           autoFocus
@@ -43,7 +43,7 @@ const LogInPage = () => {
         </p>
         <input
           type="password"
-          className="p-1"
+          className="p-1 w-56"
           id="pw"
           onChange={handleInputChange}
           value={inputUserProfileData.inputUserPw}
