@@ -65,8 +65,8 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex w-80 flex-col items-center justify-center gap-4">
-      <h1 className="w-56 text-center font-black text-5xl mb-5">회원가입</h1>
+    <div className="flex w-80 flex-col items-center justify-center gap-4 mt-24">
+      <h1 className="w-56 text-center font-black text-5xl mb-8">회원가입</h1>
       <div className="flex gap-4 items-center justify-center">
         <p className="w-28">아이디:</p>
         <input

@@ -4,11 +4,11 @@ import ExpenseLog from "./ExpenseLog/ExpenseLog";
 
 const ExpenseHistorySection = ({currentLocalStorage}) => {
   return (
-    <>
+    <div className="flex flex-col gap-y-8">
       <MonthSelectSection />
       <ExpenseDiagram />
       <ExpenseLog />
-    </>
+    </div>
   );
 };
 

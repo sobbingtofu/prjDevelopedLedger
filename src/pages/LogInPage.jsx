@@ -50,8 +50,8 @@ const LogInPage = () => {
   //   console.log(inputUserProfileData);
   // });
   return (
-    <div className="flex w-80 flex-col items-center justify-center gap-4">
-      <h1 className="text-center font-black text-5xl mb-5">로그인</h1>
+    <div className="flex w-80 flex-col items-center justify-center gap-4 mt-24">
+      <h1 className="text-center font-black text-5xl mb-8">로그인</h1>
       <div className="flex gap-4 items-center justify-center">
         <p className="w-20">아이디:</p>
         <input

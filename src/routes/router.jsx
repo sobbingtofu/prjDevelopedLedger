@@ -4,23 +4,34 @@ import ExpenseEditPage from "../pages/ExpenseEditPage";
 import LogInPage from "../pages/LogInPage";
 import Redirect from "../pages/Redirect";
 import SignInPage from "../pages/SignInPage";
+import DefaultLayout from "../layout/DefaultLayout";
+import MyPage from "../pages/MyPage";
 
 export const loggedInRouter = createBrowserRouter([
   {
-    path: "/",
-    element: <MainPage />,
-  },
-  {
-    path: "/expenseEdit/:id",
-    element: <ExpenseEditPage />,
-  },
-  {
-    path: "/logIn",
-    element: <Redirect />,
-  },
-  {
-    path: "/signIn",
-    element: <Redirect />,
+    element: <DefaultLayout></DefaultLayout>,
+    children: [
+      {
+        path: "/",
+        element: <MainPage />,
+      },
+      {
+        path: "/expenseEdit/:id",
+        element: <ExpenseEditPage />,
+      },
+      {
+        path: "/myPage",
+        element: <MyPage />,
+      },
+      {
+        path: "/logIn",
+        element: <Redirect />,
+      },
+      {
+        path: "/signIn",
+        element: <Redirect />,
+      },
+    ],
   },
 ]);
 
