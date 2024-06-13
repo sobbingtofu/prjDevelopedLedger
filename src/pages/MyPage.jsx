@@ -1,11 +1,16 @@
 import {useQuery} from "@tanstack/react-query";
 import {getUserData} from "../axios/authApi";
 import {useLogInSignUpStore} from "../zustand/logInSignUpStore";
+import {useRef} from "react";
 
 const MyPage = () => {
+  const idInputRef = useRef(null);
+  const nicknameInputRef = useRef(null);
+
   const {data: currentUserData, isPending, isError} = useQuery({queryKey: ["currentUserData"], queryFn: getUserData});
   console.log(currentUserData);
   const shiftToLogOut = useLogInSignUpStore((state) => state.shiftToLogOut);
+
   if (isPending) {
     return <div>로딩중...</div>;
   } else if (isError) {
@@ -20,8 +25,16 @@ const MyPage = () => {
     } else {
       return (
         <>
-          <p>가입 id: {currentUserData.data.id}</p>
-          <p>회원 닉네임: {currentUserData.data.nickname}</p>
+          <div className="flex flex-col justify-between gap-8 mt-8">
+            <div>
+              <p className="mb-2">가입 id</p>
+              <p className="text-lg font-black">{currentUserData.data.id}</p>
+            </div>
+            <div>
+              <p className="mb-2">회원 닉네임</p>
+              <p className="text-lg font-black">{currentUserData.data.nickname}</p>
+            </div>
+          </div>
         </>
       );
     }

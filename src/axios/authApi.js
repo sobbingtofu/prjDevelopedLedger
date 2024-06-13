@@ -19,7 +19,7 @@ export const signIn = async (userData) => {
 
 export const logIn = async (userData) => {
   try {
-    const path = "/login?expiresIn=15m";
+    const path = "/login?expiresIn=60m";
     const response = await authApi.post(path, userData);
 
     return response;
