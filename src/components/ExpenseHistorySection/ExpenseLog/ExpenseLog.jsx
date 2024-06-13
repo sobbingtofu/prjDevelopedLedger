@@ -39,6 +39,8 @@ const ExpenseLog = () => {
     });
 
     const handleLedgerClick = async (event) => {
+      const target = event.currentTarget;
+      console.log(target);
       await getUserData().then((response) => {
         if (response.statusText !== "OK") {
           shiftToLogOut();
@@ -46,10 +48,10 @@ const ExpenseLog = () => {
           alert(response.data.message);
         } else {
           const currentLedgerItem = fetchedCurrentLedgers.find((ledgerItem) => {
-            return ledgerItem.id === event.target.id;
+            return ledgerItem.id === target.id;
           });
           if (response.data.id === currentLedgerItem.createdBy) {
-            navigate(`/expenseEdit/${event.target.id}`);
+            navigate(`/expenseEdit/${target.id}`);
           } else {
             alert("수정 및 삭제 권한이 없습니다");
           }
