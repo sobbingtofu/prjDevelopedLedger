@@ -26,3 +26,23 @@ export const postLedger = async (ledgerItem) => {
     return error.response;
   }
 };
+
+export const patchLedger = async (editedLedgerItem) => {
+  try {
+    const path = `/ledgers/${editedLedgerItem.id}`;
+    const response = await ledgerApi.patch(path, editedLedgerItem);
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const deleteLedger = async (id) => {
+  try {
+    const path = `/ledgers/${id}`;
+    const response = await ledgerApi.delete(path);
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
+};

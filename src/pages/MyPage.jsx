@@ -21,7 +21,7 @@ const MyPage = () => {
       return (
         <>
           <p>가입 id: {currentUserData.data.id}</p>
-          <p>회원 이름: {currentUserData.data.nickname}</p>
+          <p>회원 닉네임: {currentUserData.data.nickname}</p>
         </>
       );
     }

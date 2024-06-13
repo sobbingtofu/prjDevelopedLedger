@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
-export const ExpenseLogItem = styled(Link)`
+export const ExpenseLogItem = styled.div`
   display: flex;
   width: 90%;
   background-color: #f0f0f0;

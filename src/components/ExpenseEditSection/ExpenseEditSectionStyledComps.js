@@ -10,6 +10,10 @@ export const StyledEditLabel = styled.p`
 `;
 
 export const StyledEditInput = styled.input`
+  border: solid;
+  border-width: 0.5pt;
+  border-color: grey;
+  border-radius: 5px;
   width: 95%;
   font-size: 1.1rem;
   margin: 0px 0px 10px 0px;
@@ -26,6 +30,8 @@ export const StyledBtnContainer = styled.div`
 
 export const EditBtn = styled.button`
   padding: 1% 2%;
+  border-style: solid;
+  border-color: black;
   background-color: #7fc5fa;
   border-width: 0.5pt;
   border-radius: 5px;
@@ -39,6 +45,8 @@ export const EditBtn = styled.button`
 export const DeleteBtn = styled.button`
   padding: 1% 2%;
   background-color: #f29485;
+  border-style: solid;
+  border-color: black;
   border-width: 0.5pt;
   border-radius: 5px;
   transition: 0.3s;

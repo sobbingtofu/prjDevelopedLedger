@@ -27,6 +27,7 @@ const AddSection = () => {
   const handleClickSaveBtn = async (event) => {
     const id = uuidv4();
     await getUserData().then((response) => {
+      console.log(response);
       if (response.statusText !== "OK") {
         shiftToLogOut();
         localStorage.removeItem("accessToken");
@@ -38,7 +39,7 @@ const AddSection = () => {
           money: moneyInputRef.current.value,
           description: descriptionInputRef.current.value,
           id: id,
-          createdBy: response.nickname,
+          createdBy: response.data.id,
         };
         postLedgerToServer(newLedgerItem);
       }
