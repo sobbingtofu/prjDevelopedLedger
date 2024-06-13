@@ -40,7 +40,7 @@ const ExpenseDiagram = () => {
     });
 
     const SelectedMonthLedger = tmpSelectedMonthLedger.map((ledgerItem) => {
-      return {...ledgerItem, ...{expenseRatio: 100 * (ledgerItem.money / totalExpenseAmount).toFixed(3)}};
+      return {...ledgerItem, ...{expenseRatio: 100 * parseFloat(ledgerItem.money / totalExpenseAmount)}};
     });
 
     const SelectedMonthLedgerGroupedByCategory = [];
@@ -50,7 +50,7 @@ const ExpenseDiagram = () => {
         const tmp = {
           category: ledgerItem.category,
           totalExpense: parseInt(ledgerItem.money),
-          totalExpenseRatio: parseFloat(ledgerItem.expenseRatio).toFixed(3),
+          totalExpenseRatio: parseFloat(ledgerItem.expenseRatio),
         };
         SelectedMonthLedgerGroupedByCategory.push(tmp);
       } else {
@@ -61,14 +61,14 @@ const ExpenseDiagram = () => {
           const tmpObj = {
             category: ledgerItem.category,
             totalExpense: parseInt(ledgerItem.money),
-            totalExpenseRatio: parseFloat(ledgerItem.expenseRatio).toFixed(3),
+            totalExpenseRatio: parseFloat(ledgerItem.expenseRatio),
           };
           SelectedMonthLedgerGroupedByCategory.push(tmpObj);
         } else {
           SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpense += parseInt(ledgerItem.money);
-          SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpenseRatio += parseFloat(
-            ledgerItem.expenseRatio
-          ).toFixed(3);
+          SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpenseRatio =
+            parseFloat(SelectedMonthLedgerGroupedByCategory[targetIndex].totalExpenseRatio) +
+            parseFloat(ledgerItem.expenseRatio);
         }
       }
     });
@@ -85,11 +85,11 @@ const ExpenseDiagram = () => {
       for (let i = 0; i < overflowAmount; i++) {
         const tmpObj = SelectedMonthLedgerGroupedByCategory.pop();
         extraLedger.totalExpense += tmpObj.totalExpense;
-        extraLedger.totalExpenseRatio += tmpObj.totalExpenseRatio;
+        extraLedger.totalExpenseRatio += parseFloat(tmpObj.totalExpenseRatio);
       }
       SelectedMonthLedgerGroupedByCategory.push(extraLedger);
     }
-
+    console.log(SelectedMonthLedgerGroupedByCategory);
     if (selectedMonth !== 0) {
       return (
         <StyledArea>
