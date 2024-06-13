@@ -16,3 +16,14 @@ export const signIn = async (userData) => {
     return error.response;
   }
 };
+
+export const logIn = async (userData) => {
+  try {
+    const path = "/login?expiresIn=10m";
+    const response = await authApi.post(path, userData);
+
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

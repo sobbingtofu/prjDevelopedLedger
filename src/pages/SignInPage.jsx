@@ -1,9 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {signIn} from "../axios/authApi";
+import {useLogInSignUpStore} from "../zustand/logInSignUpStore";
 
 const SignInPage = () => {
   const navigate = useNavigate();
+
+  const setIdInput = useLogInSignUpStore((state) => state.setIdInput);
 
   const [inputUserProfileData, setInputUserProfileData] = useState({
     inputUserId: "",
@@ -48,6 +51,7 @@ const SignInPage = () => {
       signIn(userProfileBody).then((response) => {
         if (response.statusText === "Created") {
           alert(`ID: ${inputUserProfileData.inputUserId}\n회원가입완료`);
+          setIdInput(inputUserProfileData.inputUserId);
           navigate("/logIn");
         } else if (response.statusText === "Conflict") {
           alert(`${response.data.message}\n다른 ID를 사용해주세요.`);

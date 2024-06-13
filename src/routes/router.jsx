@@ -14,6 +14,14 @@ export const loggedInRouter = createBrowserRouter([
     path: "/expenseEdit/:id",
     element: <ExpenseEditPage />,
   },
+  {
+    path: "/logIn",
+    element: <Redirect />,
+  },
+  {
+    path: "/signIn",
+    element: <Redirect />,
+  },
 ]);
 
 export const loggedOutRouter = createBrowserRouter([
