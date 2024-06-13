@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const LEDGER_BASE_URL = "http://localhost:5000";
+const LEDGER_BASE_URL = "https://ripe-busy-alamosaurus.glitch.me/";
 
 const ledgerApi = axios.create({
   baseURL: LEDGER_BASE_URL,
