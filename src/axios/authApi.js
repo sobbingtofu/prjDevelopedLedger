@@ -44,18 +44,14 @@ export const getUserData = async () => {
   }
 };
 
-export const changeUserNickname = async (newNickname) => {
+export const changeUserProfile = async (formData) => {
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
     try {
       const path = "/profile";
-      const response = await authApi.patch(
-        path,
-        {nickname: newNickname},
-        {
-          headers: {"Content-Type": "multipart/form-data", Authorization: `Bearer ${accessToken}`},
-        }
-      );
+      const response = await authApi.patch(path, formData, {
+        headers: {"Content-Type": "multipart/form-data", Authorization: `Bearer ${accessToken}`},
+      });
 
       return response;
     } catch (error) {
